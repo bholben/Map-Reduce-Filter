@@ -10,13 +10,13 @@
  *    - array         - array reduce was called upon
  * @return {type depends on array elements} accumulated value
  */
-var myReduce = function (array, callback) {
+Array.prototype.myReduce = function (callback) {
   var previousValue,
       currentValue;
-  for(var index = 1; index < array.length; index++) {
-    previousValue = previousValue || array[index - 1];
-    currentValue = array[index];
-    previousValue = callback(previousValue, currentValue, index, array);
+  for(var index = 1; index < this.length; index++) {
+    previousValue = previousValue || this[index - 1];
+    currentValue = this[index];
+    previousValue = callback(previousValue, currentValue, index, this);
   }
   return previousValue;
 };
@@ -34,16 +34,8 @@ var testFunc = function (previousValue, currentValue, index, array) {
     return previousValue + currentValue;
 };
 
-// Function that should be equivalent to solution at the top.
-var builtinReduce = function (array, callback) {
-  var results = array.reduce(function (previousValue, currentValue, index, array) {
-    return callback(previousValue, currentValue, index, array);
-  });
-  return results;
-};
-
 // Run tests.
-console.log('Built-in Reduce: ', builtinReduce(testArray, testFunc));
+console.log('Built-in Reduce: ', testArray.reduce(testFunc));
 console.log();
-console.log('Homegrown Reduce:', myReduce(testArray, testFunc));
+console.log('Homegrown Reduce:', testArray.myReduce(testFunc));
 

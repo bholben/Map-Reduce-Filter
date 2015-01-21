@@ -8,12 +8,12 @@
  *    - array         - array map was called upon
  * @return {array} mapped array
  */
-var myMap = function (array, callback) {
+Array.prototype.myMap = function (callback) {
   var results = [],
       currentValue;
-  for(var index = 0; index < array.length; index++) {
-    currentValue = array[index];
-    results.push(callback(currentValue, index, array));
+  for(var index = 0; index < this.length; index++) {
+    currentValue = this[index];
+    results.push(callback(currentValue, index, this));
   }
   return results;
 };
@@ -31,16 +31,8 @@ var testFunc = function (currentValue, index, array) {
   return currentValue + '1';
 };
 
-// Function that should be equivalent to solution at the top.
-var builtinMap = function (array, callback) {
-  var results = array.map(function (currentValue, index, array) {
-    return callback(currentValue, index, array);
-  });
-  return results;
-};
-
 // Run tests.
-console.log('Built-in Map: ', builtinMap(testArray, testFunc));
+console.log('Built-in Map: ', testArray.map(testFunc));
 console.log();
-console.log('Homegrown Map:', myMap(testArray, testFunc));
+console.log('Homegrown Map:', testArray.myMap(testFunc));
 

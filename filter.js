@@ -6,11 +6,11 @@
  *                   Return true to keep the element, false otherwise.
  * @return {array} filtered array
  */
-var myFilter = function (array, callback) {
+Array.prototype.myFilter = function (callback) {
   var results = [];
-  for(var index = 0; index < array.length; index++) {
-    if (callback(array[index])) {
-      results.push(array[index]);
+  for(var index = 0; index < this.length; index++) {
+    if (callback(this[index])) {
+      results.push(this[index]);
     };
   }
   return results;
@@ -29,16 +29,8 @@ var testFunc = function (currentValue) {
   return currentValue > 25;
 };
 
-// Function that should be equivalent to solution at the top.
-var builtinFilter = function (array, callback) {
-  var results = array.filter(function (currentValue) {
-    return callback(currentValue);
-  });
-  return results;
-};
-
 // Run tests.
-console.log('Built-in Map: ', builtinFilter(testArray, testFunc));
+console.log('Built-in Map: ', testArray.filter(testFunc));
 console.log();
-console.log('Homegrown Map:', myFilter(testArray, testFunc));
+console.log('Homegrown Map:', testArray.myFilter(testFunc));
 
