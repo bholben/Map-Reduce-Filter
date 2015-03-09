@@ -1,11 +1,19 @@
 
-Deliverable:  http://bholben.github.io/Map-Reduce-Filter/
+## Map-Reduce-Filter
 
-## Bonus
+[Assignment #8 (bonus)](https://github.com/tiy-atl-js-q1-2015/Assignments) from [The Iron Yard's](http://theironyard.com/locations/atlanta/) 12-week Front End Engineering bootcamp Q1 2015.
 
-As further practice with JS Arrays, loops and functions, rebuild the following methods using only a for loop.
+Practice at re-writing the builtin looping functions (map(), reduce(), filter()) using only a for loop.
 
-map()
-reduce()
-filter()
+### Deliverable
+[http://bholben.github.io/Map-Reduce-Filter//](http://bholben.github.io/Map-Reduce-Filter//)
+
+### Technologies
+  * JavaScript
+
+### How to use it
+
+From command line, `git clone git@github.com:bholben/Calculator.git`
+
+In the browser window, open up dev tools to view the output.
 
